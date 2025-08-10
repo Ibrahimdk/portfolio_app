@@ -9,20 +9,16 @@ st.write("---")
 
 # --- FUNGSI UNTUK MENAMPILKAN PROYEK ---
 def project_card(image_url, title, description, link):
-    """Fungsi untuk menampilkan kartu proyek yang rapi."""
-    # Menggunakan container untuk mengelompokkan elemen
+    """untuk menampilkan kartu proyek yang rapi."""
+
     with st.container():
-        # Memuat gambar dari URL atau path lokal
         try:
-            # Jika menggunakan URL
             project_image = Image.open(requests.get(image_url, stream=True).raw)
         except:
-            # Jika gambar tidak ditemukan atau path lokal
             project_image = "https://via.placeholder.com/300x200.png?text=Project+Image"
 
-        # Membuat 2 kolom: satu untuk gambar, satu untuk teks
+        
         col1, col2 = st.columns([1, 3])
-
         with col1:
             st.image(project_image, use_column_width=True)
 
@@ -35,9 +31,9 @@ def project_card(image_url, title, description, link):
 # --- DAFTAR PROYEK ---
 
 # --- PROYEK 1 ---
-with st.container(border=True): # Menambahkan border di sekitar container
+with st.container(border=True): 
     project_card(
-        image_url="URL_GAMBAR_PROYEK_1",  # Ganti dengan URL gambar yang relevan
+        image_url="URL_GAMBAR_PROYEK_1",  
         title="FraudGuard App",
         description="""
         Working on final capstone project on Fraud Detection SMS/Email. “FraudGuard” is an application used to identify fraud. 
@@ -48,7 +44,7 @@ with st.container(border=True): # Menambahkan border di sekitar container
         link="https://github.com/Bangkit-Team-C241-PS499/ML-FraudModel/tree/master" 
     )
 
-st.write("") # Memberi spasi
+st.write("") 
 
 # --- PROYEK 2 ---
 with st.container(border=True):
@@ -58,7 +54,7 @@ with st.container(border=True):
         description="""
         Creating an engaging user interface. Delivering an experience that meets user needsDesigning the workflow for the attendance application. Developing the concept for an attendance application. Creating features for Class List, Class Details, Permission Form, Permission and Attendance History.
         """,
-        link="https://play.google.com/store/apps/details?id=com.bengkelkoding.bengkel_koding_mobile&hl=en_US" # Ganti dengan link GitHub Anda
+        link="https://play.google.com/store/apps/details?id=com.bengkelkoding.bengkel_koding_mobile&hl=en_US" 
     )
 
 st.write("") # Memberi spasi
@@ -73,5 +69,5 @@ with st.container(border=True):
         or negative. Successfully tested the model's abilit to predict sentiment based on input provided. 
         Implemented the Logistic Regression algorithm for sentiment analysis
         """,
-        link="https://github.com/yourusername/klasifikasi-iris-cnn" # Ganti dengan link GitHub Anda
+        link="https://github.com/yourusername/klasifikasi-iris-cnn" 
     )

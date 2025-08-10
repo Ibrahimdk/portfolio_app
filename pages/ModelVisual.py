@@ -11,7 +11,6 @@ from collections import Counter
 st.set_page_config(page_title="Model Visualization", layout="wide")
 st.title("📊 Visualisasi Data dan Performa Model")
 
-# Fungsi untuk memuat data dengan caching
 @st.cache_data
 def load_data():
     try:
@@ -32,7 +31,7 @@ if df is not None:
     )
     st.sidebar.info("Visualisasi ini didasarkan pada data dan model yang telah dilatih di notebook 'Modelling_FraudGuard.ipynb'.")
 
-    # --- Tampilan Utama berdasarkan Pilihan ---
+
 
     if viz_choice == "Distribusi Label Dataset":
         st.header("Distribusi Label pada Dataset")
@@ -86,7 +85,7 @@ if df is not None:
         st.header("Visualisasi Performa Model LSTM")
         st.write("Grafik ini merepresentasikan bagaimana model belajar selama proses training dan bagaimana performanya dalam memprediksi data uji.")
 
-        # --- Data History Training (diekstrak dari output notebook Anda) ---
+        # --- Data History Training 
         st.subheader("Kurva Pembelajaran (Learning Curves)")
         history_data = {
             'epoch': list(range(1, 21)),
@@ -105,7 +104,7 @@ if df is not None:
             fig_loss = px.line(history_df, x='epoch', y=['loss', 'val_loss'], title="Model Loss", markers=True)
             st.plotly_chart(fig_loss, use_container_width=True)
         
-        # --- Confusion Matrix (diekstrak dari output notebook Anda) ---
+        # --- Confusion Matrix 
         st.subheader("Confusion Matrix")
         st.write("Menunjukkan seberapa baik model dapat membedakan antar kelas. Sumbu Y adalah label asli (True Label), dan sumbu X adalah label prediksi (Predicted Label).")
 
